@@ -1,11 +1,37 @@
+//express import
 import express from "express";
+const app = express();
+
+//env import
 import dotenv from "dotenv";
 dotenv.config();
-
 const PORT = process.env.PORT || 5000;
 
+//db import
+import connectDB from "./config/dbconfig.js";
+connectDB();
 
-const app = express();
+
+//import other files
+import cors from "cors";
+import router from "./routes/authroute.js";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(morgan("dev"));
+
+
+app.use("/api/v1/auth", router);
+
+
+
+
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
