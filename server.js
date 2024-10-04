@@ -14,15 +14,16 @@ connectDB();
 
 //import other files
 import cors from "cors";
-import router from "./routes/authroute.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+import authrouter from "./routes/authroute.js";
+import memberrouter from "./routes/memberroute.js";
 
 
 // Middleware
 app.use(cors(
     {
-        origin: ["https://ecnaseerpur.in", "http://localhost:8080"],
+        origin: ["https://ecnaseerpur.in", "http://localhost:5173"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }
@@ -33,11 +34,8 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 
-app.use("/api/v1/auth", router);
-
-app.use('/', (req, res) => {
-    res.send("Hello World!");
-})
+app.use("/api/v1/auth", authrouter);
+app.use("/api/v1/ecnmembers", memberrouter);
 
 
 
