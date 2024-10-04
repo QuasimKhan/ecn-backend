@@ -22,7 +22,7 @@ import morgan from "morgan";
 // Middleware
 app.use(cors(
     {
-        origin: ["http://localhost:5173"],
+        origin: ["https://ecnaseerpur.in"],
         credentials: true
     }
 
