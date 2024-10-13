@@ -9,13 +9,12 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: [true, "Father's name is required"]
     },
+    profileImage: {
+        type: String
+    },
     dob: { // Changing to Date type instead of Number
         type: Date,
         required: [true, "Date of Birth is required"]
-    },
-    employmentType: {
-        type: String,
-        required: [true, "Employment Type is required"]
     },
     address: {
         type: String,
@@ -51,8 +50,8 @@ const memberSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["member", "admin", "supervisor"], // Defining role options
-        default: "member"
+        // enum: ["Member", "Member of Majil-e-Shura", "Volunteer"], // Defining role options
+        default: "Member"
     }
 }, {
     timestamps: true
