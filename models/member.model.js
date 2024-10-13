@@ -10,7 +10,8 @@ const memberSchema = new mongoose.Schema({
         required: [true, "Father's name is required"]
     },
     profileImage: {
-        type: String
+        type: String,
+        default: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
     },
     dob: { // Changing to Date type instead of Number
         type: Date,
