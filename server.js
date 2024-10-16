@@ -1,5 +1,5 @@
 //express import
-import express from "express";
+import express, { application } from "express";
 const app = express();
 
 //env import
@@ -18,6 +18,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import authrouter from "./routes/authroute.js";
 import memberrouter from "./routes/memberroute.js";
+import bookrouter from "./routes/bookroute.js";
 
 
 // Middleware
@@ -36,6 +37,7 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/ecnmembers", memberrouter);
+app.use("/api/v1/books", bookrouter);
 
 
 
