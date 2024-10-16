@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema({
 
     category: {
         type: String,
-        enum: ['Islamic', 'General', 'Quran', 'Hadith'],  // predefined categories
+        // enum: ['Islamic', 'General', 'Quran', 'Hadith'],  // predefined categories
         required: true,
       },
       coverImage: {

@@ -20,7 +20,7 @@ const addBookController = async (req, res) => {
         if (req.files && req.files.coverImage && req.files.pdfFile) {
             // Upload the cover image to Cloudinary
             const coverImagePath = req.files.coverImage[0].path;  // Multer stores file path
-            const coverImageUploadResponse = await uploadOnCloudinary(coverImagePath);
+            const coverImageUploadResponse = await uploadOnCloudinary(coverImagePath, 'image');
             newBook.coverImage = coverImageUploadResponse.secure_url;
 
             // After successful upload, remove the file from the local file system
